@@ -1,5 +1,7 @@
 import pytest
 from advertisements_page import AdvertisementsPage
+from uuid import uuid4
+
 
 @pytest.fixture(scope="module")
 def advertisements_page(driver):
@@ -9,11 +11,12 @@ def advertisements_page(driver):
 @pytest.fixture(scope="session")
 def unique_ad_data():
     """Фикстура для уникальных данных объявления"""
+    uid = uuid4().hex[:8]
     return {
-        "title": "Test Ad 12345",
+        "title": f"Test Ad {uid}",
         "price": "100",
-        "description": "Test Description",
-        "image": "path/to/image.jpg"
+        "description": f"Test Description {uid}",
+        "image": "https://via.placeholder.com/150"
     }
 
 def test_create_advertisement(advertisements_page, unique_ad_data):
