@@ -16,7 +16,7 @@ def unique_ad_data():
         "title": f"Test Ad {uid}",
         "price": "100",
         "description": f"Test Description {uid}",
-        "image": "https://via.placeholder.com/150"
+        "image": "somethink"
     }
 
 def test_create_advertisement(advertisements_page, unique_ad_data):
